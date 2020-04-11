@@ -78,7 +78,7 @@ function Commas(name)
     return commaandno 
 }
 
-function CSV(name){
+function CSVnew(name){
     var newstring = name[x].replace('\"', '');
     var newstring = newstring.replace('\"', '');
     var nocsv = `Hello, ${name[0]} and ` 
