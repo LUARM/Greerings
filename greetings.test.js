@@ -22,6 +22,8 @@ test('interpolates name', () => {
   test('when mixed names', () => {
     expect(greet(["Amy", "BRIAN", "Charlotte"])).toBe("Hello, Amy and Charlotte. AND HELLO BRIAN!");
   });  
+  
+
 
   test('when string contains a comma ', () => {
     expect(greet(["Bob", "Charlie, Dianne"])).toBe("Hello, Bob, Charlie, and Dianne.");

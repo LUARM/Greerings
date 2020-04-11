@@ -2,7 +2,8 @@
 
 
 function greet(name){
-    if (name == null){
+    if (name == null)
+    {
         return "Hello, my friend."
         }
     for( x in name)
@@ -34,15 +35,6 @@ function greet(name){
         var commaandno = nocomma.concat(splited)
         return commaandno 
     }
-    if (csv == true)
-    {
-        if (name[0].includes('\"') == false)
-        {   
-            var nocsv = `Hello, ${name[0]} and ` 
-        }  
-        var csvno = nocsv.concat(newstring)
-        return csvno 
-    }
     if (name == name.toString().toUpperCase())
     {
     return `HELLO, ${name}!`
@@ -50,7 +42,14 @@ function greet(name){
     if (name.length == 2){
     return `Hello,${name[0]} and ${name[1]}.`
     }
-    if (name.length >= 3 && Array.isArray(name) == true)
+    if (name.length >= 3 && Array.isArray(name) == true){
+        return three_or_more(name)
+
+    }
+    return `Hello, ${name}.`;
+}
+
+function three_or_more(name){
     {   var mixed = false;
         for( x in name)
         {
@@ -62,12 +61,10 @@ function greet(name){
             {
                var mixed = true;
             }
-           
-            
+
         }
         if (mixed  == true)
         {
-            var yellcount = 0
             var normalcount = 0
             for( x in name)
             {
@@ -90,33 +87,27 @@ function greet(name){
             }
             var result1 = normal.concat(yell)
             }
-            
             return result1;    
         }
-
-       
-
-    var length_names = name.length;
-    var endname = name.length -1;
-    var hi = `Hello,${name[0]} `;
-    var i = 1;
-    while (length_names > 2)
-    {
-    var str2 = `,${name[i]} `
-    var str1 = hi.concat(str2)  
-    i += 1;
-    length_names = length_names - 1;
+        var length_names = name.length;
+        var endname = name.length -1;
+        var hi = `Hello,${name[0]} `;
+        var i = 1;
+        while (length_names > 2)
+        {
+        var str2 = `,${name[i]} `
+        var str1 = hi.concat(str2)  
+        i += 1;
+        length_names = length_names - 1;
+        }
+        var end = `, and ${name[endname]}.`
+        var result = str1.concat(end)
+        return result;  
+        }
+        
     }
-    var end = `, and ${name[endname]}.`
-    var result = str1.concat(end)
-    return result;  
-    }
-    
-    return `Hello, ${name}.`;
-    
 
 
-}
 
 module.exports = greet;
 
