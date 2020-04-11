@@ -16,7 +16,8 @@ function greet(name){
         if (name[x].includes('\"') == true)
         { 
             return CSV(name)    
-        }     
+        } 
+            
     }
     if (commas == true){
        return Commas(name)
@@ -35,13 +36,10 @@ function greet(name){
 }
 
 function three_or_more(name){
-    {   var mixed = false;
+    {   
+        var mixed = false;
         for( x in name)
         {
-            if (name[x].includes("Bob") == true)
-            {
-            return `Hello, ${name[x]} `
-            }
             if (name[x] == name[x].toString().toUpperCase())
             {
                var mixed = true;
@@ -49,29 +47,7 @@ function three_or_more(name){
         }
         if (mixed  == true)
         {
-            var normalcount = 0
-            for( x in name)
-            {
-            if (name[x] == name[x].toString().toUpperCase())
-            {
-                var yell = `AND HELLO ${name[x]}!`
-            }
-            else
-            {
-                if(normalcount == 0)
-                {
-                var normal = `Hello, ${name[x]} `
-                }
-                if(normalcount == 1)
-                {
-                var normal1 = `and ${name[x]}. `
-                var normal = normal.concat(normal1)
-                }
-                normalcount += 1
-            }
-            var result1 = normal.concat(yell)
-            }
-            return result1;    
+            return Mixed(name)
         }
         var length_names = name.length;
         var endname = name.length -1;
@@ -110,6 +86,32 @@ function CSV(name){
     var csvno = nocsv.concat(newstring)
     var csvno1 = csvno.concat(endperiod)
     return csvno1
+}
+
+function Mixed(name){
+    var normalcount = 0
+    for( x in name)
+    {
+    if (name[x] == name[x].toString().toUpperCase())
+    {
+        var yell = `AND HELLO ${name[x]}!`
+    }
+    else
+    {
+        if(normalcount == 0)
+        {
+        var normal = `Hello, ${name[x]} `
+        }
+        if(normalcount == 1)
+        {
+        var normal1 = `and ${name[x]}. `
+        var normal = normal.concat(normal1)
+        }
+        normalcount += 1
+    }
+    var result1 = normal.concat(yell)
+    }
+    return result1;    
 }
 
 module.exports = greet;
