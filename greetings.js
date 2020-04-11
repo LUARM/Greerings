@@ -4,36 +4,22 @@
 function greet(name){
     if (name == null)
     {
-        return "Hello, my friend."
-        }
+    return "Hello, my friend."
+    }
     for( x in name)
     {
-        var csv = false
         var commas = false
         if (name[x].includes(",") == true)
-        {   var nameArr = name[x].split(',');
-            var splited = `${nameArr[0]}, and${nameArr[1]}.`
+        {   
             commas = true
         } 
         if (name[x].includes('\"') == true)
-        {   
-            var newstring = name[x].replace('\"', '');
-            var newstring = newstring.replace('\"', '');
-            var nocsv = `Hello, ${name[0]} and ` 
-            var endperiod = '.'
-            var csvno = nocsv.concat(newstring)
-            var csvno1 = csvno.concat(endperiod)
-            return csvno1
-            
+        { 
+            return CSV(name)    
         }     
     }
     if (commas == true){
-        if (name[0].includes(",") == false)
-        {   
-        var nocomma = `Hello, ${name[0]}, `
-        }  
-        var commaandno = nocomma.concat(splited)
-        return commaandno 
+       return Commas(name)
     }
     if (name == name.toString().toUpperCase())
     {
@@ -44,7 +30,6 @@ function greet(name){
     }
     if (name.length >= 3 && Array.isArray(name) == true){
         return three_or_more(name)
-
     }
     return `Hello, ${name}.`;
 }
@@ -61,7 +46,6 @@ function three_or_more(name){
             {
                var mixed = true;
             }
-
         }
         if (mixed  == true)
         {
@@ -104,10 +88,29 @@ function three_or_more(name){
         var result = str1.concat(end)
         return result;  
         }
-        
     }
 
+function Commas(name)
+{
+    var nameArr = name[x].split(',');
+    var splited = `${nameArr[0]}, and${nameArr[1]}.`
+    if (name[0].includes(",") == false)
+    {   
+    var nocomma = `Hello, ${name[0]}, `
+    }  
+    var commaandno = nocomma.concat(splited)
+    return commaandno 
+}
 
+function CSV(name){
+    var newstring = name[x].replace('\"', '');
+    var newstring = newstring.replace('\"', '');
+    var nocsv = `Hello, ${name[0]} and ` 
+    var endperiod = '.'
+    var csvno = nocsv.concat(newstring)
+    var csvno1 = csvno.concat(endperiod)
+    return csvno1
+}
 
 module.exports = greet;
 
